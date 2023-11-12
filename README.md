@@ -4,15 +4,21 @@
 
 You should install this in `devDependencies` because you'll configure your build process to copy the built `.docktileplugin` bundle into a folder inside your app bundle. Because of this, the switching icons can only work with your production app, not when running with the electron binary used in development.
 
-## Xcode Requirements
+#### Not allowed in Mac App Store
 
-You must have `xcodebuild` installed and working properly. It comes with Xcode, but if there's an error, you may need to run `sudo xcode-select --reset` or use the `-switch` argument to set the location of your Xcode tools.
+Last I heard, Apple does not allow apps with a docktileplugin in the Mac App Store.
 
 ## Install
 
+#### Xcode Requirements
+
+You must have `xcodebuild` installed and working properly. It comes with Xcode, but if there's an error, you may need to run `sudo xcode-select --reset` or use the `-switch` argument to set the location of your Xcode tools.
+
+### 1. Install in `devDependencies`
+
     npm install --save-dev electron-mac-dock-icon-switcher
 
-### Set Variable in `.npmrc`
+### 2. Set Variables in `.npmrc`
 
 You must add the three variables in your app's `.npmrc` file. Each string **must be unique** to your app.
 
@@ -26,17 +32,19 @@ An example `.npmrc` file:
     dock_icon_plugin_bundle_identifier=com.demo.docktile.plugin
     dock_icon_class_name=MyDemoDockTilePlugin
 
-If you change any of these values after running once, you'll need to clear the dock's cache between runs. Quit the app, remove it app from the dock, wait 5 seconds, then restart the `Dock` and `SystemUIServer` services:
+#### Changing these variables after installing
+
+If you change any of these values after running once, first rebuild dependencies with `npm rebuild`, then you'll also need to clear the dock's cache: Quit the app, remove it app from the dock, wait 5 seconds, then restart the `Dock` and `SystemUIServer` services:
 
     sudo killall Dock
     sudo killall SystemUIServer
 
-### Build Phase Requirements
+### 3. Build Phase Requirements
 
 1. Set `NSDockTilePlugIn` in your app's Info.plist
-2. Copy `DockTile.docktileplugin` bundle to your app's bundle
+2. Copy `DockTile.docktileplugin` bundle to your app's bundle in a folder called `PlugIns`
 
-`forge.config.cjs` example:
+Here's an example using `electron-forge` in your `forge.config.cjs` file:
 
     module.exports = {
     	extendInfo: {
@@ -79,10 +87,6 @@ If you change any of these values after running once, you'll need to clear the d
 You may need to sign the DockTile.docktileplugin bundle before distributing your app.
 
 **TODO**: add instructions for signing with `electron-forge`
-
-## Not Allowed in Mac App Store
-
-Last I heard, Apple does not allow apps with a docktileplugin in the Mac App Store.
 
 ## Debugging
 
