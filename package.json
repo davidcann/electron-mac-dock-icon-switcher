@@ -1,0 +1,25 @@
+{
+	"name": "electron-mac-dock-icon-switcher",
+	"version": "1.0.0",
+	"description": "",
+	"author": "David Cann <david@davidcann.com> (https://davidcann.com)",
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "./build.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/davidcann/electron-mac-dock-icon-switcher.git"
+	},
+	"keywords": [
+		"electron",
+		"electronjs",
+		"dock",
+		"macos",
+		"mac"
+	],
+	"bugs": {
+		"url": "https://github.com/davidcann/electron-mac-dock-icon-switcher/issues"
+	},
+	"homepage": "https://github.com/davidcann/electron-mac-dock-icon-switcher#readme"
+}

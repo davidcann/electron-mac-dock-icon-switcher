@@ -1,0 +1,35 @@
+{
+	"name": "demo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"package": "electron-forge package",
+		"make": "electron-forge make"
+	},
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@electron-forge/cli": "^6.4.2",
+		"@electron-forge/maker-zip": "^6.4.2",
+		"@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+		"electron": "^27.0.0",
+		"electron-mac-dock-icon-switcher": "file:.."
+	},
+	"type": "commonjs",
+	"build": {
+		"productName": "Demo",
+		"asar": true,
+		"files": [
+			"build/**/*",
+			"assets/**/*"
+		],
+		"win": {},
+		"linux": {},
+		"mac": {}
+	},
+	"dependencies": {
+		"ini": "^4.1.1"
+	}
+}

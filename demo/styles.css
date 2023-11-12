@@ -1,0 +1,32 @@
+body {
+	background: none;
+	color: #000000;
+	user-select: none;
+}
+
+h1 {
+	font-size: 1.3em;
+	margin-top: 0px;
+}
+
+.buttons {
+	align-items: center;
+	display: flex;
+	inset: 0px;
+	justify-content: center;
+	position: absolute;
+}
+
+button {
+	background: none;
+	border: 0px;
+	border-radius: 24px;
+	display: inline-flex;
+	padding: 5px;
+}
+button:hover {
+	background: rgb(0, 0, 0, 0.07);
+}
+button:active {
+	background: rgb(0, 0, 0, 0.2);
+}
