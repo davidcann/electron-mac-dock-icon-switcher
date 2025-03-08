@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "main.js",
 	"scripts": {
+		"build": "../build.sh",
 		"start": "electron .",
 		"package": "electron-forge package",
 		"make": "electron-forge make"

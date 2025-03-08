@@ -92,7 +92,7 @@ You may need to sign the DockTile.docktileplugin bundle before distributing your
 
 Build manually after checking out this repository:
 
-    ./build.sh
+    npx run ./build.sh
 
 Fixes some xcodebuild cli errors:
 
